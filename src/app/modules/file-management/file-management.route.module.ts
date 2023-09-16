@@ -1,0 +1,23 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { FileManagementComponent } from './file-management.component';
+
+const routes: Routes = [
+  {
+    path: 'ds',
+    component: FileManagementComponent,
+    children: [
+      {
+        path: 'file-management',
+        component: FileManagementComponent,
+        data: { returnUrl: window.location.pathname },
+      },
+    ],
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class FileManagementRoutingModule {}
